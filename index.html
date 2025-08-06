@@ -1,151 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Untuk mengakali cache github, biar langsung update setelah di push berkala -->
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-    />
-    <meta
-      name="keywords"
-    />
-    <title>My Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
-    />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="icon" href="./assets/favicon.png" type="image/png" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"
-      integrity="sha512-24XP4a9KVoIinPFUbcnjIjAjtS59PUoxQj3GNVpWc86bCqPuy3YxAcxJrxFCxXe4GHtAumCbO2Ze2bddtuxaRw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <nav class="navbar">
-          <div class="logo">
-            <img src="./assets/logo.png" alt="E-Groceries logo" />
-          </div>
-          <button
-            class="menu-button"
-            id="menu-button"
-            onclick="toggleMenuButton()"
-          >
-            <i data-feather="menu"></i>
-          </button>
-          <ul class="navigation-list" id="menu-list">
-            <li><a href="#hero" onclick="setTitle(this)">Home</a></li>
-            <li>
-              <a href="#our-profile" onclick="setTitle(this)">Our Profile</a>
-            </li>
-            <li><a href="#portofolio" onclick="setTitle(this)">Portofolio</a></li>
-            <li><a href="#message-us" onclick="setTitle(this)">Message Us</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-    <main class="main-content">
-        
-        <div class="hero-wrapper">
-          <div class="hero-slider" id="hero-slider">
-            <img id="slide1" src="./assets/images/banner1.jpg" alt="" />
-            <img id="slide2" src="./assets/images/banner2.jpg" alt="" />
-            <img id="slide3" src="./assets/images/banner3.jpg" alt="" />
-            <img id="slide4" src="./assets/images/banner4.jpg" alt="" />
-            <img id="slide5" src="./assets/images/banner5.jpg" alt="" />
-            <img id="slide6" src="./assets/images/banner1.jpg" alt="" />
-            <img id="slide7" src="./assets/images/banner2.jpg" alt="" />
-            <img id="slide8" src="./assets/images/banner3.jpg" alt="" />
-          </div>
-          <h1 class="main-title">Hi Ridho Reynaldo, Welcome To Website</h1>
-          <p class="hero-description">Lorem ipsum dolor sit ametx</p>
-        </div>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Deteksi Aktivitas Pengguna</title>
+</head>
+<body>
+  <h1>Contoh Deteksi Klik Kanan, Pindah Tab, dan Pindah Halaman</h1>
+  <p>Buka console (F12) untuk melihat log.</p>
 
-      <div class="hero-wrapper" id="our-profile">
-          <h1 class="main-title">Profile Ridho Reynaldo</h1>
-      </div>
-      
-      <div class="hero-wrapper" id="portofolio">
-        <h1 class="main-title">Portofolio</h1>
-      </div>
+  <script>
+    // Deteksi klik kanan
+    document.addEventListener("contextmenu", function (event) {
+      event.preventDefault(); // Blok klik kanan
+      alert("Klik kanan dinonaktifkan!");
+    });
 
-      <div class="container" id="message-us">
-        <div class="about-contact" id="about">
-          
-          <div class="contact">
-            <h2 class="subsection-title">Message Us</h2>
-            <form id="contactForm">
-              <div class="form-group">
-                  <label for="name">Name:</label>
-                  <input type="text" id="name" name="name" required>
-              </div>
+    // Deteksi pengguna pindah tab, minimize, atau kembali ke tab
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        console.log("Pengguna berpindah tab atau minimize.");
+        alert("Kamu meninggalkan halaman!");
+      } else {
+        console.log("Pengguna kembali ke halaman.");
+      }
+    });
 
-              <div class="form-group">
-                  <label for="date">Date:</label>
-                  <input type="date" id="date" name="date">
-              </div>
-
-              <div class="form-group">
-                  <label>Gender:</label>
-                  <input type="radio" id="male" name="gender" value="male">
-                  <label for="male">Male</label>
-                  <input type="radio" id="female" name="gender" value="female">
-                  <label for="female">Female</label>
-              </div>
-
-              <div class="form-group">
-                  <label for="message">Message:</label>
-                  <textarea id="message" name="message" rows="4" cols="50" required></textarea>
-              </div>
-
-              <input type="submit" value="Submit">
-          </form>
-          </div>
-          
-          <!--  -->
-          <div class="contact">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <div id="myTime"></div>
-            <div id="form-output">
-              <!-- Form output goes here -->
-            </div>
-          </div>
-          
-          <!--  -->
-
-        </div>
-      </div>
-      
-    </main>
-    <footer class="footer">
-      <div class="container">
-        <div class="logo">
-          <img src="./assets/logo.png" alt="E-Groceries logo" width="100" />
-        </div>
-        <ul class="footer-navigation">
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
-        <div>
-          © 2024 <a href="https://www.instagram.com/ridho_reynaldo">Ridho Reynaldo</a>
-        </div>
-      </div>
-    </footer>
-    <script>
-      feather.replace();
-    </script>
-    <script src="./js/script.js"></script>
-  </body>
+    // Deteksi ketika pengguna ingin reload, tutup tab, atau keluar halaman
+    window.addEventListener("beforeunload", function (event) {
+      event.preventDefault(); // Untuk beberapa browser
+      event.returnValue = ''; // Untuk kompatibilitas lama
+    });
+  </script>
+</body>
 </html>
