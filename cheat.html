@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Deteksi Aktivitas Pengguna</title>
+</head>
+<body>
+  <h1>Contoh Deteksi Klik Kanan, Pindah Tab, dan Pindah Halaman</h1>
+  <p>Buka console (F12) untuk melihat log.</p>
+
+  <script>
+    // Deteksi klik kanan
+    document.addEventListener("contextmenu", function (event) {
+      event.preventDefault(); // Blok klik kanan
+      alert("Klik kanan dinonaktifkan!");
+    });
+
+    // Deteksi pengguna pindah tab, minimize, atau kembali ke tab
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        console.log("Pengguna berpindah tab atau minimize.");
+        alert("Kamu meninggalkan halaman!");
+      } else {
+        console.log("Pengguna kembali ke halaman.");
+      }
+    });
+
+    // Deteksi ketika pengguna ingin reload, tutup tab, atau keluar halaman
+    window.addEventListener("beforeunload", function (event) {
+      event.preventDefault(); // Untuk beberapa browser
+      event.returnValue = ''; // Untuk kompatibilitas lama
+    });
+  </script>
+</body>
+</html>
